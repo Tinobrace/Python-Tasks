@@ -1,10 +1,15 @@
-log_file = "sample.log"  # Name of the log file
-
-def count_errors(file):
+def filter_logs(file, severity=None, date=None):
     with open(file, "r") as f:
-        logs = f.readlines()  # Read all lines of the file
+        logs = f.readlines()
 
-    error_count = sum(1 for line in logs if "ERROR" in line)  # Count lines with "ERROR"
-    print(f"Found {error_count} occurrences of 'ERROR' in logs.")
+    filtered_logs = [line.strip() for line in logs if 
+                     (not severity or severity.upper() in line) and 
+                     (not date or line.startswith(date))]
 
-count_errors(log_file)
+    print("\n".join(filtered_logs) if filtered_logs else "\nNo logs found matching your criteria.")
+
+date_filter = input("Enter date (YYYY-MM-DD) or press Enter: ").strip()
+severity_filter = input("Enter severity (INFO, WARNING, ERROR) or press Enter: ").strip().upper()
+
+filter_logs("sample.log", severity=severity_filter if severity_filter else None, date=date_filter if date_filter else None)
+

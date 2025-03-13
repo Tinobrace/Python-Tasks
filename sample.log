@@ -1,6 +1,5 @@
-INFO: Server started successfully.
-WARNING: Low disk space.
-ERROR: Failed to connect to database.
-INFO: User logged in.
-ERROR: Out of memory.
-ERROR: File not found.
+2025-03-10 12:00:00 INFO: Server started successfully.
+2025-03-10 12:10:30 ERROR: Failed to connect to database.
+2025-03-11 10:30:20 ERROR: Out of memory.
+2025-03-12 14:45:00 ERROR: File not found.
+
